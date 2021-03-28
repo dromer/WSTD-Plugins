@@ -25,4 +25,16 @@ clean:
 	$(MAKE) clean -C dpf/utils/lv2-ttl-generator
 	$(MAKE) clean -C plugins/arp-delay-env
 
+install:
+	install -d $(DESTDIR)$(PREFIX)/lib/lv2/
+	install -d $(DESTDIR)$(PREFIX)/lib/vst/
+	install -d $(DESTDIR)$(PREFIX)/bin/
+
+	cp bin/*-vst.*    $(DESTDIR)$(PREFIX)/lib/vst/
+	cp -r bin/*.lv2   $(DESTDIR)$(PREFIX)/lib/lv2/
+
+ifeq ($(HAVE_JACK),true)
+	cp -r bin/arp-delay-env  $(DESTDIR)$(PREFIX)/bin/
+endif
+
 .PHONY: plugins
