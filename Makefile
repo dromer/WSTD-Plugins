@@ -34,7 +34,7 @@ install:
 	cp -r bin/*.lv2   $(DESTDIR)$(PREFIX)/lib/lv2/
 
 ifeq ($(HAVE_JACK),true)
-	cp -r bin/arp-delay-env  $(DESTDIR)$(PREFIX)/bin/
+	cp -r bin/arp_delay_env  $(DESTDIR)$(PREFIX)/bin/
 endif
 
 .PHONY: plugins
